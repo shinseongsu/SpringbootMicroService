@@ -20,4 +20,5 @@ public class ProductServiceImpl implements ProductService {
     public Product getProduct(int productId) {
         return new Product(productId, "name-" + productId, 123, serviceUtil.getServiceAddress());
     }
+
 }
