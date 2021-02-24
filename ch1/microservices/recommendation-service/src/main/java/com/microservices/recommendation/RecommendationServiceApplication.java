@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@ComponentScan("com")
+@ComponentScan("com.microservices")
 public class RecommendationServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(RecommendationServiceApplication.class, args);

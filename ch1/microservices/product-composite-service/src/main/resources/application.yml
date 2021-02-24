@@ -13,13 +13,12 @@ app:
 
 ---
 spring.profiles: docker
-
 server.port: 8080
 
 app:
   product-service:
     host: product
-    prot: 8080
+    port: 8080
   recommendation-service:
     host: recommendation
     port: 8080
