@@ -121,3 +121,40 @@ docker logs my-prd-srv -f
 docker rm -f my-prd-srv
 ```
 
+- 한꺼번에 도커 실행하기
+
+최상위 루트에서 gradle build를 실행한다.
+마이크로서비스 폴더에 있는 모든것이 빌드 됩니다.
+
+```shell
+gradle build
+```
+
+![gradle](./images/gradleBuild.png)
+
+최상위 루트에 docker-compose.yml를 만들어 profile나 port 와 관련된 정보를 적습니다.
+docker-compose.yml를 만든 뒤, docker-compose build로 빌드 시킨다.
+
+```shell
+docker-compose build
+```
+
+![docker](./images/docker-compose.png)
+
+그 다음 docker-compose up -d 로 실행 시키고 docker-compose logs -f 로 로그를 볼 수 있습니다.
+
+![docker](./images/dockerUP.png)
+![docker](./images/dockerLOG.png)
+
+- swagger 사용해보기
+
+라이브러리를 받고, 설정을 하여 사용중인 api를 문서화 할 수 있다.
+
+![swagger](./images/swaggerLIBRARY.png)
+
+api 문서를 보기 위해서는 `http://localhost:8080/swagger-ui/index.html` 로 연결하면 볼 수 있다.
+> swagger2 2.9 이하의 버전에서는 localhost:8080/swagger-ui.html 에서 볼 수 있었습니다.
+
+  
+  
+![swagger](./images/swaggerUI.png)
