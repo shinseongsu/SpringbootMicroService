@@ -27,4 +27,5 @@ public interface RecommendationMapper {
     List<Recommendation> entityListToApiList(List<RecommendationEntity> entity);
     List<RecommendationEntity> apiListToEntityList(List<Recommendation> api);
 
+
 }

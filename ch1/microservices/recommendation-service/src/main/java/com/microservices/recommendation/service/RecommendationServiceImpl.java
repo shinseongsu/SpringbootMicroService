@@ -20,9 +20,11 @@ public class RecommendationServiceImpl implements RecommendationService {
 
     private static final Logger LOG = LoggerFactory.getLogger(RecommendationServiceImpl.class);
 
-    private final ServiceUtil serviceUtil;
     private final RecommendationRepository repository;
+
     private final RecommendationMapper mapper;
+
+    private final ServiceUtil serviceUtil;
 
     @Autowired
     public RecommendationServiceImpl(RecommendationRepository repository, RecommendationMapper mapper, ServiceUtil serviceUtil) {
@@ -64,4 +66,5 @@ public class RecommendationServiceImpl implements RecommendationService {
         LOG.debug("deleteRecommendations: tries to delete recommendations for the product with productId: {}", productId);
         repository.deleteAll(repository.findByProductId(productId));
     }
+
 }

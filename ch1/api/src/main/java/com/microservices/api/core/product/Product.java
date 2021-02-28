@@ -1,6 +1,7 @@
 package com.microservices.api.core.product;
 
 public class Product {
+
     private int productId;
     private String name;
     private int weight;
@@ -51,4 +52,5 @@ public class Product {
     public void setServiceAddress(String serviceAddress) {
         this.serviceAddress = serviceAddress;
     }
+
 }

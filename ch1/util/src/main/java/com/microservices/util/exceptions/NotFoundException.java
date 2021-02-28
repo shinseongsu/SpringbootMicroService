@@ -1,6 +1,7 @@
 package com.microservices.util.exceptions;
 
 public class NotFoundException extends RuntimeException {
+
     public NotFoundException() {
     }
 
@@ -15,4 +16,5 @@ public class NotFoundException extends RuntimeException {
     public NotFoundException(Throwable cause) {
         super(cause);
     }
+
 }

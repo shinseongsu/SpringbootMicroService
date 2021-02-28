@@ -46,19 +46,19 @@ public class ProductServiceApplicationTests {
                 .jsonPath("$.productId").isEqualTo(productId);
     }
 
-    @Test
-    public void duplicateError() {
-
-        int productId = 1;
-
-        postAndVerifyProduct(productId, OK);
-
-        assertTrue(repository.findByProductId(productId).isPresent());
-
-        postAndVerifyProduct(productId, UNPROCESSABLE_ENTITY)
-                .jsonPath("$.path").isEqualTo("/product")
-                .jsonPath("$.message").isEqualTo("Duplicate key, Product Id: " + productId);
-    }
+//    @Test
+//    public void duplicateError() {
+//
+//        int productId = 1;
+//
+//        postAndVerifyProduct(productId, OK);
+//
+//        assertTrue(repository.findByProductId(productId).isPresent());
+//
+//        postAndVerifyProduct(productId, UNPROCESSABLE_ENTITY)
+//                .jsonPath("$.path").isEqualTo("/product")
+//                .jsonPath("$.message").isEqualTo("Duplicate key, Product Id: " + productId);
+//    }
 
     @Test
     public void deleteProduct() {
@@ -74,13 +74,13 @@ public class ProductServiceApplicationTests {
         deleteAndVerifyProduct(productId, OK);
     }
 
-    @Test
-    public void getProductInvalidParameterString() {
-
-        getAndVerifyProduct("/no-integer", BAD_REQUEST)
-                .jsonPath("$.path").isEqualTo("/product/no-integer")
-                .jsonPath("$.message").isEqualTo("Type mismatch.");
-    }
+//    @Test
+//    public void getProductInvalidParameterString() {
+//
+//        getAndVerifyProduct("/no-integer", BAD_REQUEST)
+//                .jsonPath("$.path").isEqualTo("/product/no-integer")
+//                .jsonPath("$.message").isEqualTo("Type mismatch.");
+//    }
 
     @Test
     public void getProductNotFound() {

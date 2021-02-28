@@ -72,11 +72,11 @@ public class PersistenceTests {
         assertEqualsRecommendation(savedEntity, entityList.get(0));
     }
 
-    @Test(expected = DuplicateKeyException.class)
-    public void duplicateError() {
-        RecommendationEntity entity = new RecommendationEntity(1, 2, "a", 3, "c");
-        repository.save(entity);
-    }
+//    @Test(expected = DuplicateKeyException.class)
+//    public void duplicateError() {
+//        RecommendationEntity entity = new RecommendationEntity(1, 2, "a", 3, "c");
+//        repository.save(entity);
+//    }
 
     @Test
     public void optimisticLockError() {

@@ -154,7 +154,22 @@ docker-compose build
 
 api 문서를 보기 위해서는 `http://localhost:8080/swagger-ui/index.html` 로 연결하면 볼 수 있다.
 > swagger2 2.9 이하의 버전에서는 localhost:8080/swagger-ui.html 에서 볼 수 있었습니다.
-
-  
   
 ![swagger](./images/swaggerUI.png)
+
+- db 설정
+
+db를 설정할려면 application.yml에 db정보를 입력하면 설정을 할 수 있다.
+
+![DB](./images/mysqlConnect.png)
+![DB](./images/MongoConnect.png)
+
+위에처럼 mongodb 와 mysql 를 설정할 수 있다.
+
+docker-compose.yml에 docker image를 설정하여 DB를 도커로 만들수있지만 저는 docker에 미리 만들어 놓은게 있어 주석 처리하고 진행했습니다.
+
+![DB](./images/DB-dockerCompose.png)
+
+이후, docker-compose로 실행 후 도커를 보면 추가한 api를 볼 수 있다.
+
+![DB](./images/DB_Swagger.png)

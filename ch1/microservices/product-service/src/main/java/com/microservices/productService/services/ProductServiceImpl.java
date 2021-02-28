@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductServiceImpl implements ProductService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProductServiceImpl.class);
+
     private final ServiceUtil serviceUtil;
+
     private final ProductRepository repository;
+
     private final ProductMapper mapper;
 
     @Autowired

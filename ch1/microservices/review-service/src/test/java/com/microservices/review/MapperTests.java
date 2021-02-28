@@ -15,6 +15,7 @@ public class MapperTests {
 
     private ReviewMapper mapper = Mappers.getMapper(ReviewMapper.class);
 
+
     @Test
     public void mapperTests() {
 

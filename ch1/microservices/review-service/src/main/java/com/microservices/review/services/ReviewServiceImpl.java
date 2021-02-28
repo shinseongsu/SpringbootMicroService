@@ -20,9 +20,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     private static final Logger LOG = LoggerFactory.getLogger(ReviewServiceImpl.class);
 
-    private final ServiceUtil serviceUtil;
     private final ReviewRepository repository;
+
     private final ReviewMapper mapper;
+
+    private final ServiceUtil serviceUtil;
 
     @Autowired
     public ReviewServiceImpl(ReviewRepository repository, ReviewMapper mapper, ServiceUtil serviceUtil) {

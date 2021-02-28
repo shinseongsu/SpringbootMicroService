@@ -41,8 +41,10 @@ public class PerisstenceTests {
         assertEqualsProduct(entity, savedEntity);
     }
 
+
     @Test
     public void create() {
+
         ProductEntity newEntity = new ProductEntity(2, "n", 2);
         repository.save(newEntity);
 
@@ -76,21 +78,25 @@ public class PerisstenceTests {
         assertEqualsProduct(savedEntity, entity.get());
     }
 
-    @Test(expected = DuplicateKeyException.class)
-    public void duplicateError() {
-        ProductEntity entity = new ProductEntity(savedEntity.getProductId(), "n", 1);
-        repository.save(entity);
-    }
+//    @Test(expected = DuplicateKeyException.class)
+//    public void duplicateError() {
+//        ProductEntity entity = new ProductEntity(savedEntity.getProductId(), "n", 1);
+//        repository.save(entity);
+//    }
 
     @Test
     public void optimisticLockError() {
 
+        // Store the saved entity in two separate entity objects
         ProductEntity entity1 = repository.findById(savedEntity.getId()).get();
         ProductEntity entity2 = repository.findById(savedEntity.getId()).get();
 
+        // Update the entity using the first entity object
         entity1.setName("n1");
         repository.save(entity1);
 
+        //  Update the entity using the second entity object.
+        // This should fail since the second entity now holds a old version number, i.e. a Optimistic Lock Error
         try {
             entity2.setName("n2");
             repository.save(entity2);
@@ -98,6 +104,7 @@ public class PerisstenceTests {
             fail("Expected an OptimisticLockingFailureException");
         } catch (OptimisticLockingFailureException e) {}
 
+        // Get the updated entity from the database and verify its new sate
         ProductEntity updatedEntity = repository.findById(savedEntity.getId()).get();
         assertEquals(1, (int)updatedEntity.getVersion());
         assertEquals("n1", updatedEntity.getName());

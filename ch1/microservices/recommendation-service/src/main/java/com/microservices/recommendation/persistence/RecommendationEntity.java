@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "recommendations")
+@Document(collection="recommendations")
 @CompoundIndex(name = "prod-rec-id", unique = true, def = "{'productId': 1, 'recommendationId' : 1}")
 public class RecommendationEntity {
 
@@ -87,4 +87,5 @@ public class RecommendationEntity {
     public void setContent(String content) {
         this.content = content;
     }
+
 }
